@@ -1,0 +1,28 @@
+{
+  "name": "@project/backend",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/es/index.js",
+    "default": "./dist/cjs/index.js"
+  },
+  "scripts": {
+    "lint": "prettier 'src/**/*.(ts|js|tsx|jsx)' --write && eslint --ext .js,.jsx,.ts,.tsx src",
+    "lint:fix": "prettier 'src/**/*.(ts|js|tsx|jsx)' --write && eslint --ext .js,.jsx,.ts,.tsx src --fix",
+    "dev": "rollup -c --watch",
+    "build": "rollup -c"
+  },
+  "keywords": [],
+  "author": "Gobind Singh",
+  "license": "ISC",
+  "dependencies": {
+    "@project/eslint-config": "*",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "eslint": "^8",
+    "puppeteer": "^22.7.1",
+    "rollup": "^4.17.2",
+    "tslib": "^2.6.2"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@project/app",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/scripts/watcher.ts",
+    "build": "tsx src/scripts/index.ts"
+  },
+  "keywords": [],
+  "author": "Gobind Singh",
+  "license": "ISC",
+  "dependencies": {
+    "@project/eslint-config": "*",
+    "eslint": "^8",
+    "node-watch": "^0.7.4",
+    "tsx": "^4.9.1"
+  },
+  "devDependencies": {
+    "@project/backend": "*"
+  }
+}
