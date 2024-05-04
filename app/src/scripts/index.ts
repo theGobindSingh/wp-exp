@@ -17,7 +17,10 @@ const copyBackendScript = () => {
     resolve(backendDistPath, "./index.js"),
     resolve(appDistDir, "./bg.js"),
     (err) => {
-      if (err) throw err;
+      if (err) {
+        console.log("Error copying backend script.", err);
+        return;
+      }
       console.log("Backend script copied.");
     }
   );
@@ -28,7 +31,10 @@ const copyManifestFile = () => {
     resolve(appDir, "./src/manifest.json"),
     resolve(appDistDir, "./manifest.json"),
     (err) => {
-      if (err) throw err;
+      if (err) {
+        console.log("Error copying manifest file.", err);
+        return;
+      }
       console.log("Manifest file copied.");
     }
   );
