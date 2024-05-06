@@ -4,27 +4,44 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
 
+/** @type {import('rollup').Plugin[]} */
+const plugins = [
+  nodeResolve(),
+  commonjs(),
+  json(),
+  typescript({ tsconfig: "./tsconfig.json" }),
+  terser()
+];
+
 /** @type {import('rollup').RollupOptions} */
 const config = [
   {
-    input: "src/index.ts",
+    input: "src/bg.ts",
     output: [
       {
         format: "cjs",
-        file: "dist/index.js",
+        file: "dist/bg.js",
         inlineDynamicImports: true
       }
     ],
     watch: {
       clearScreen: false
     },
-    plugins: [
-      nodeResolve(),
-      commonjs(),
-      json(),
-      typescript({ tsconfig: "./tsconfig.json" }),
-      terser()
-    ]
+    plugins
+  },
+  {
+    input: "src/content.ts",
+    output: [
+      {
+        format: "cjs",
+        file: "dist/content.js",
+        inlineDynamicImports: true
+      }
+    ],
+    watch: {
+      clearScreen: false
+    },
+    plugins
   }
 ];
 

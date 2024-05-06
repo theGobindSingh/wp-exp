@@ -1,6 +1,9 @@
 module.exports = {
-  extends: ['@project/eslint-config/.eslintrc.cjs'],
+  extends: ["@project/eslint-config/.eslintrc.cjs"],
   parserOptions: {
-    project: true,
+    project: true
   },
+  rules: {
+    "node/no-missing-import": "off"
+  }
 };

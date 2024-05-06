@@ -14,7 +14,7 @@ const distInit = () => {
 
 const copyBackendScript = () => {
   copyFile(
-    resolve(backendDistPath, "./index.js"),
+    resolve(backendDistPath, "./bg.js"),
     resolve(appDistDir, "./bg.js"),
     (err) => {
       if (err) {
@@ -22,6 +22,17 @@ const copyBackendScript = () => {
         return;
       }
       console.log("Backend script copied.");
+    }
+  );
+  copyFile(
+    resolve(backendDistPath, "./content.js"),
+    resolve(appDistDir, "./content.js"),
+    (err) => {
+      if (err) {
+        console.log("Error copying backend content script.", err);
+        return;
+      }
+      console.log("Backend content script copied.");
     }
   );
 };
